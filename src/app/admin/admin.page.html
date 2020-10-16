@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Admin</ion-title>
+    <ion-icon slot="end" [routerLink]="['/admin/create-product']" name="add" size="large"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+      <ion-col>
+        <ion-item-sliding *ngFor="let products of products">
+          <ion-item-options side="end">
+            <ion-item-option color="danger"(click)="showAlert(products.productID)">
+              <ion-icon slot="icon-only" name="trash"></ion-icon>
+            </ion-item-option>
+          </ion-item-options>
+          <ion-item-options side="start">
+            <ion-item-option color="primary" [routerLink]="['/admin/edit-product',products.productID]" (click)="edit(products)">
+              <ion-icon slot="icon-only" name="create"></ion-icon>
+            </ion-item-option>
+          </ion-item-options>
+          <ion-item>
+            <ion-row>
+              <ion-img style="width: 120px; height: 120px; margin: 20px; align-self: center" [src]="products.productImg"></ion-img>
+              <br>
+              <ion-col style="align-self: center;">
+                <ion-label>
+                  <ion-label>
+                    {{products.productName}}
+                  </ion-label>
+                  <br>
+                </ion-label>
+                <ion-label>
+                  <ion-label>
+                    Rp {{products.productPrice}}
+                  </ion-label>
+                  <br>
+                </ion-label>
+                <ion-label>
+                  <ion-label>
+                    Tersedia: {{products.productStock}}
+                  </ion-label>
+                </ion-label>
+              </ion-col>
+              <br>
+            </ion-row>
+          </ion-item>
+        </ion-item-sliding>
+      </ion-col>
+  </ion-grid>
+</ion-content>

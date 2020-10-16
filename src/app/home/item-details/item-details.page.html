@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>itemDetails</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-content *ngIf="itemDetails.productType === 'GPU' ">
+    <ion-grid>
+      <ion-row>
+        <br>
+        <ion-img style="width: 480px; height: 480px; margin: 20px; align-self: center"[src]="itemDetails.productImg"></ion-img>
+        <ion-col>
+          <ion-label style="align-self: center">{{itemDetails.productName}}<br></ion-label>
+          <ion-label style="align-self: center">Rp. {{itemDetails.productPrice}}<br></ion-label>
+          <ion-label style="align-self: center">Tersedia: {{itemDetails.productStock}}<br><br><br></ion-label>
+          <ion-card style="background-color: #3a7be0; color: white">
+            <ion-label style="align-self: center">About Product: <br><br></ion-label>
+            <ion-label style="align-self: center">Model: {{itemDetails.productModel}}</ion-label>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+  <ion-content *ngIf="itemDetails.productType === 'CPU' ">
+    <ion-grid>
+      <ion-row>
+        <br>
+        <ion-img style="width: 480px; height: 480px; margin: 20px; align-self: center"[src]="itemDetails.productImg"></ion-img>
+        <ion-col>
+          <ion-label style="align-self: center">{{itemDetails.productName}}<br></ion-label>
+          <ion-label style="align-self: center">Rp. {{itemDetails.productPrice}}<br></ion-label>
+          <ion-label style="align-self: center">Tersedia: {{itemDetails.productStock}}<br><br><br></ion-label>
+          <ion-card style="background-color: #3a7be0; color: white">
+            <ion-label style="align-self: center">About Product: <br><br></ion-label>
+            <ion-label style="align-self: center">Model: {{itemDetails.productModel}}<br></ion-label>
+            <ion-label style="align-self: center">Base Clock: {{itemDetails.productDescription.productBaseClock}}<br></ion-label>
+            <ion-label style="align-self: center">Boost Clock: {{itemDetails.productDescription.productBoostClock}}<br></ion-label>
+            <ion-label style="align-self: center">Core: {{itemDetails.productDescription.productCore}} Core<br></ion-label>
+            <ion-label style="align-self: center">Thread: {{itemDetails.productDescription.productThread}} Thread</ion-label>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+  <ion-content *ngIf="itemDetails.productType === 'RAM' ">
+    <ion-grid>
+      <ion-row>
+        <br>
+        <ion-img style="width: 480px; height: 480px; margin: 20px; align-self: center"[src]="itemDetails.productImg"></ion-img>
+        <ion-col>
+          <ion-label style="align-self: center">{{itemDetails.productName}}<br></ion-label>
+          <ion-label style="align-self: center">Rp. {{itemDetails.productPrice}}<br></ion-label>
+          <ion-label style="align-self: center">Tersedia: {{itemDetails.productStock}}<br><br><br></ion-label>
+          <ion-card style="background-color: #3a7be0; color: white">
+            <ion-label style="align-self: center">About Product: <br><br></ion-label>
+            <ion-label style="align-self: center">Model: {{itemDetails.productModel}}<br></ion-label>
+            <ion-label style="align-self: center">Base Clock: {{itemDetails.productDescription.productSpeed}}<br></ion-label>
+            <ion-label style="align-self: center">Boost Clock: {{itemDetails.productDescription.productSize}}</ion-label>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+  <ion-content *ngIf="itemDetails.productType === 'Motherboard' ">
+    <ion-grid>
+      <ion-row>
+        <br>
+        <ion-img style="width: 480px; height: 480px; margin: 20px; align-self: center"[src]="itemDetails.productImg"></ion-img>
+        <ion-col>
+          <ion-label style="align-self: center">{{itemDetails.productName}}<br></ion-label>
+          <ion-label style="align-self: center">Rp. {{itemDetails.productPrice}}<br></ion-label>
+          <ion-label style="align-self: center">Tersedia: {{itemDetails.productStock}}<br><br><br></ion-label>
+          <ion-card style="background-color: #3a7be0; color: white">
+            <ion-label style="align-self: center">About Product: <br><br></ion-label>
+            <ion-label style="align-self: center">Model: {{itemDetails.productModel}}<br></ion-label>
+            <ion-label style="align-self: center">Chipset: {{itemDetails.productDescription.productChipset}}<br></ion-label>
+            <ion-label style="align-self: center">Processor: {{itemDetails.productDescription.productProcessor}}</ion-label>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+
+</ion-content>

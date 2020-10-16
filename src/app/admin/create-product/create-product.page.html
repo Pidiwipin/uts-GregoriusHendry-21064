@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>createProduct</ion-title>
+    <ion-back-button slot="start" defaultHref="/admin"></ion-back-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="newProduct">
+    <ion-item>
+      <ion-label position="floating"> URL Foto </ion-label>
+      <ion-input type="text" formControlName="productImg"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Jenis Barang</ion-label>
+      <ion-select [(ngModel)]="productType" formControlName="productType" interface="action-sheet">
+        <ion-select-option value="CPU">CPU</ion-select-option>
+        <ion-select-option value="GPU">GPU</ion-select-option>
+        <ion-select-option value="RAM">RAM</ion-select-option>
+        <ion-select-option value="Motherboard">Motherboard</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Nama barang</ion-label>
+      <ion-input type="text" formControlName="productName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Merk</ion-label>
+      <ion-input type="text" formControlName="productBrand"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Model</ion-label>
+      <ion-input type="text" formControlName="productModel"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Harga</ion-label>
+      <ion-input type="text" formControlName="productPrice"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Stock</ion-label>
+      <ion-input type="text" formControlName="productStock"></ion-input>
+    </ion-item>
+<!--    muncul sesuai jenis-->
+    <ion-item *ngIf="productType === 'CPU'">
+      <ion-label position="floating">Base Clock</ion-label>
+      <br>
+      <ion-input type="text" formControlName="productBaseClock"></ion-input>
+      <br>
+      <ion-label position="floating">Boost Clock</ion-label>
+      <ion-input type="text" formControlName="productBoostClock"></ion-input>
+      <br>
+      <ion-label position="floating">Jumlah Core</ion-label>
+      <ion-input type="text" formControlName="productCore"></ion-input>
+      <br>
+      <ion-label position="floating">Jumlah Thread</ion-label>
+      <ion-input type="text" formControlName="productThread"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="productType === 'RAM'">
+      <ion-label position="floating">Speed</ion-label>
+      <ion-input type="text" formControlName="productSpeed"></ion-input>
+      <br>
+      <ion-label position="floating">Ukuran</ion-label>
+      <ion-input type="text" formControlName="productSize"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="productType === 'Motherboard'">
+      <ion-label position="floating">Chipset</ion-label>
+      <ion-input type="text" formControlName="productChipset"></ion-input>
+      <br>
+      <ion-label position="floating">Processor</ion-label>
+      <ion-input type="text" formControlName="productProcessor"></ion-input>
+    </ion-item>
+
+    <ion-button [disabled]="newProduct.invalid" expand="full"(click)=confirmAdd()>Add Product</ion-button>
+  </form>
+</ion-content>

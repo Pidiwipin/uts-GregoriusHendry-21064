@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>edit-product</ion-title>
+    <ion-back-button slot="start" defaultHref="/admin"></ion-back-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">URL Foto</ion-label>
+    <ion-input [(ngModel)]="editProductImg"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Nama Barang</ion-label>
+    <ion-input [(ngModel)]="editProductName"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Merk</ion-label>
+    <ion-input [(ngModel)]="editProductBrand"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Model</ion-label>
+    <ion-input [(ngModel)]="editProductModel"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Harga</ion-label>
+    <ion-input [(ngModel)]="editProductPrice"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Stock</ion-label>
+    <ion-input [(ngModel)]="editProductStock"></ion-input>
+  </ion-item>
+
+  <ion-item *ngIf="itemDetails.productType ==='CPU'">
+    <ion-label position="floating">Base Clock</ion-label>
+    <ion-input [(ngModel)]="editProductBoostClock"></ion-input>
+    <br>
+    <ion-label position="floating">Boost Clock</ion-label>
+    <ion-input [(ngModel)]="editProductBoostClock"></ion-input>
+    <br>
+    <ion-label position="floating">Jumlah Core</ion-label>
+    <ion-input [(ngModel)]="editProductCore"></ion-input>
+    <br>
+    <ion-label position="floating">Jumlah Thread</ion-label>
+    <ion-input [(ngModel)]="editProductThread"></ion-input>
+  </ion-item>
+  <ion-item *ngIf="itemDetails.productType ==='RAM'">
+    <ion-label position="floating">Speed</ion-label>
+    <ion-input [(ngModel)]="editProductSpeed"></ion-input>
+    <br>
+    <ion-label position="floating">Ukuran</ion-label>
+    <ion-input [(ngModel)]="editProductSize"></ion-input>
+  </ion-item>
+  <ion-item *ngIf="itemDetails.productType ==='Motherboard'">
+    <ion-label position="floating">Chipset</ion-label>
+    <ion-input [(ngModel)]="editProductChipset"></ion-input>
+    <br>
+    <ion-label position="floating">Merk Processor</ion-label>
+    <ion-input [(ngModel)]="editProductProcessor"></ion-input>
+  </ion-item>
+
+  <ion-button expand="full"(click)=confirmEdit()>Konfirmasi</ion-button>
+
+</ion-content>
